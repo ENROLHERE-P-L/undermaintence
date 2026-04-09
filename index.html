@@ -2,107 +2,347 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site Maintenance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Enrolhere P/L – Labour hire services. Our Victorian Labour Hire Authority licence application is currently under review.">
+  <title>Coming Soon – Enrolhere P/L</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --white:      #ffffff;
+      --bg:         #ffffff;
+      --text:       #333333;
+      --muted:      #666666;
+      --light:      #999999;
+      --border:     #e0e0e0;
+      --accent:     #2A50ED;
+      --accent-dk:  #1a3bbf;
+
+      --font-display: 'Lora', Georgia, serif;
+      --font-body:    'DM Sans', Helvetica, sans-serif;
+    }
+
+    html {
+      height: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
     body {
-      text-align: center;
-      padding: 50px 20px;
-      font: 20px Helvetica, sans-serif;
-      color: #333;
-      min-height: 100vh;
+      min-height: 100%;
+      min-height: 100dvh;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: clamp(15px, 2vw, 17px);
+      line-height: 1.7;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    
-    h1 {
-      font-size: 50px;
-      margin: 30px 0 20px 0;
-    }
-    
-    article {
-      display: block;
-      max-width: 650px;
-      margin: 0 auto;
-      flex: 1;
-      padding-top: 50px;
-    }
-    
-    .logo {
-      width: 250px;
-      max-width: 80%;
-      height: auto;
-      margin-bottom: 30px;
-    }
-    
-    .company-details {
-      font-size: 16px;
-      margin-bottom: 40px;
-      color: #666;
-    }
-    
-    footer {
-      margin-top: auto;
-      padding: 30px 20px;
-      font-size: 13px;
-      color: #666;
-      line-height: 1.6;
+
+    /* ─── MAIN ─── */
+    main {
       width: 100%;
+      max-width: 680px;
+      padding: clamp(48px, 9vw, 100px) clamp(20px, 5vw, 48px) clamp(32px, 5vw, 60px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
     }
-    
-    @media (max-width: 600px) {
-      body {
-        padding: 30px 15px;
-      }
-      
-      h1 {
-        font-size: 36px;
-      }
-      
-      .logo {
-        width: 200px;
-      }
-      
-      footer {
-        font-size: 12px;
-      }
+
+    /* ─── LOGO ─── */
+    .logo-wrap {
+      margin-bottom: clamp(20px, 4vw, 36px);
+      opacity: 0;
+      transform: translateY(-12px);
+      animation: fadeUp 0.6s ease forwards 0.1s;
     }
-    
-    a {
-      color: #007bff;
+
+    .logo-wrap svg {
+      width: clamp(160px, 42vw, 250px);
+      height: auto;
+      display: block;
+    }
+
+    /* ─── COMPANY META ─── */
+    .company-details {
+      font-size: clamp(14px, 2vw, 16px);
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.9;
+      margin-bottom: clamp(28px, 5vw, 44px);
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards 0.3s;
+    }
+
+    .company-details strong {
+      display: block;
+      font-size: clamp(15px, 2.2vw, 17px);
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .company-details a {
+      color: var(--accent);
       text-decoration: none;
     }
-    
-    a:hover {
-      color: #0056b3;
+
+    .company-details a:hover,
+    .company-details a:focus {
+      color: var(--accent-dk);
+      text-decoration: underline;
+      outline: none;
     }
-    
-    p {
-      margin: 15px 0;
+
+    /* ─── DIVIDER ─── */
+    .rule {
+      width: clamp(40px, 8vw, 60px);
+      height: 2px;
+      background: var(--border);
+      margin-bottom: clamp(24px, 4vw, 40px);
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards 0.45s;
+    }
+
+    /* ─── HEADING ─── */
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 7.5vw, 64px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: clamp(16px, 3vw, 28px);
+      opacity: 0;
+      animation: fadeUp 0.65s ease forwards 0.5s;
+    }
+
+    /* ─── BODY COPY ─── */
+    .body-copy {
+      font-size: clamp(14px, 2.2vw, 16px);
+      color: var(--muted);
+      text-align: center;
+      max-width: 480px;
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeUp 0.65s ease forwards 0.65s;
+    }
+
+    .body-copy a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .body-copy a:hover,
+    .body-copy a:focus {
+      color: var(--accent-dk);
+      text-decoration: underline;
+      outline: none;
+    }
+
+    .sign-off {
+      font-size: clamp(14px, 2vw, 15px);
+      color: var(--light);
+      text-align: center;
+      margin-top: 12px;
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards 0.8s;
+    }
+
+    /* ─── CTA BUTTON ─── */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: clamp(28px, 5vw, 44px);
+      padding: clamp(12px, 2.2vw, 14px) clamp(24px, 5vw, 36px);
+      background: var(--accent);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: clamp(13px, 2vw, 15px);
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 6px;
+      letter-spacing: 0.03em;
+      transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease;
+      box-shadow: 0 2px 12px rgba(42,80,237,0.18);
+      opacity: 0;
+      animation: fadeUp 0.65s ease forwards 0.85s;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .cta:hover,
+    .cta:focus-visible {
+      background: var(--accent-dk);
+      box-shadow: 0 4px 20px rgba(42,80,237,0.28);
+      transform: translateY(-2px);
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .cta:active {
+      transform: translateY(0);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      width: 100%;
+      max-width: 680px;
+      padding: clamp(24px, 4vw, 36px) clamp(20px, 5vw, 48px);
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+      opacity: 0;
+      animation: fadeIn 0.7s ease forwards 1s;
+    }
+
+    .footer-notice {
+      font-size: clamp(12px, 1.8vw, 13px);
+      color: var(--muted);
+      line-height: 1.8;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .footer-notice a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer-notice a:hover {
+      color: var(--accent-dk);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 4px 16px;
+      font-size: clamp(11px, 1.6vw, 12px);
+      color: var(--light);
+      text-align: center;
+    }
+
+    .footer-bottom a {
+      color: var(--light);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--accent);
+    }
+
+    .sep { opacity: 0.4; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ─── REDUCED MOTION ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .logo-wrap, .company-details, .rule, h1,
+      .body-copy, .sign-off, .cta, footer {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* ─── PRINT ─── */
+    @media print {
+      body { background: #fff; }
+      .cta { display: none; }
+      footer { border-top: 1px solid #ccc; }
     }
   </style>
 </head>
 <body>
-  <article>
-    <img src="logo.svg" alt="Company Logo" class="logo">
-    
+
+  <main role="main">
+
+    <!-- Inline SVG logo — no external file dependency -->
+    <div class="logo-wrap">
+      <svg width="250" height="95" viewBox="0 0 250 95" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Enrolhere P/L logo">
+        <rect width="250" height="95" fill="white"/>
+        <path d="M95.5 54V51.4H89.38V48.12H94.92V45.66H89.38V42.42H95.5V39.82H86.62V54H95.5ZM112.361 54V39.82H109.601V49.2L103.701 39.82H100.261V54H103.021V43.94L109.461 54H112.361ZM124.593 54H127.673L124.633 48.2C126.493 47.66 127.653 46.16 127.653 44.18C127.653 41.72 125.893 39.82 123.133 39.82H117.593V54H120.373V48.54H121.813L124.593 54ZM120.373 46.16V42.22H122.613C124.013 42.22 124.833 43 124.833 44.2C124.833 45.36 124.013 46.16 122.613 46.16H120.373ZM134.015 46.9C134.015 43.7 136.255 42.18 138.435 42.18C140.635 42.18 142.875 43.7 142.875 46.9C142.875 50.1 140.635 51.62 138.435 51.62C136.255 51.62 134.015 50.1 134.015 46.9ZM131.155 46.92C131.155 51.48 134.595 54.3 138.435 54.3C142.295 54.3 145.735 51.48 145.735 46.92C145.735 42.34 142.295 39.52 138.435 39.52C134.595 39.52 131.155 42.34 131.155 46.92ZM159.208 54V51.36H152.888V39.82H150.128V54H159.208Z" fill="#2A50ED"/>
+        <path d="M175.039 54V39.82H172.259V45.52H166.079V39.82H163.319V54H166.079V48.12H172.259V54H175.039ZM189.16 54V51.4H183.04V48.12H188.58V45.66H183.04V42.42H189.16V39.82H180.28V54H189.16ZM200.921 54H204.001L200.961 48.2C202.821 47.66 203.981 46.16 203.981 44.18C203.981 41.72 202.221 39.82 199.461 39.82H193.921V54H196.701V48.54H198.141L200.921 54ZM196.701 46.16V42.22H198.941C200.341 42.22 201.161 43 201.161 44.2C201.161 45.36 200.341 46.16 198.941 46.16H196.701ZM217.301 54V51.4H211.181V48.12H216.721V45.66H211.181V42.42H217.301V39.82H208.421V54H217.301Z" fill="#2D3959"/>
+        <circle cx="44" cy="47" r="13.5" fill="white" stroke="#2A50ED" stroke-width="3"/>
+        <circle cx="44" cy="47" r="9" fill="#2A50ED"/>
+        <circle cx="62" cy="47" r="15.5" stroke="white" stroke-width="3"/>
+        <circle cx="62" cy="47" r="13.5" fill="white" stroke="#2A50ED" stroke-width="3"/>
+      </svg>
+    </div>
+
     <div class="company-details">
-      <strong>EnrolHer P/L</strong><br>
-      0481 865 748<br>
+      <strong>Enrolhere P/L</strong>
+      <a href="tel:0481865748">0481 865 748</a><br>
       <a href="mailto:support@enrolhere.com.au">support@enrolhere.com.au</a>
     </div>
-    
+
+    <div class="rule" aria-hidden="true"></div>
+
     <h1>We'll be back soon!</h1>
-    
-    <div>
-      <p>Sorry for the inconvenience but we're performing some maintenance at the moment. If you need to you can always <a href="mailto:support@enrolhere.com.au">contact us</a>, otherwise we'll be back online shortly!</p>
-      <p>&mdash; The Team</p>
-    </div>
-  </article>
-  
+
+    <p class="body-copy">
+      Sorry for the inconvenience but we're performing some maintenance at the moment.
+      If you need to, you can always <a href="mailto:support@enrolhere.com.au">contact us</a>,
+      otherwise we'll be back online shortly!
+    </p>
+
+    <p class="sign-off">&mdash; The Team</p>
+
+    <a href="mailto:support@enrolhere.com.au" class="cta" aria-label="Send us an email">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M2 7l10 7 10-7"/>
+      </svg>
+      Get in Touch
+    </a>
+
+  </main>
+
   <footer>
-    Our application for a labour hire license is currently under review by the Victorian Labour Hire Authority. We are committed to meeting all regulatory requirements. Once our license is approved, this website will be fully operational, and we will be able to provide our labour hire services. We appreciate your patience and understanding during this time. For any inquiries, please <a href="mailto:support@enrolhere.com.au">contact us</a>.<br><br>
-    Copyright &copy; 2025 EnrolHer P/L, ABN 32 696 881 482
+    <p class="footer-notice">
+      Our application for a labour hire licence is currently under review by the Victorian Labour Hire Authority.
+      We are committed to meeting all regulatory requirements. Once our licence is approved, this website will be
+      fully operational and we will be able to provide our labour hire services. We appreciate your patience and
+      understanding during this time. For any enquiries, please <a href="mailto:support@enrolhere.com.au">contact us</a>.
+    </p>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Enrolhere P/L</span>
+      <span class="sep">·</span>
+      <span>ABN 32 696 881 482</span>
+      <span class="sep">·</span>
+      <a href="mailto:support@enrolhere.com.au">support@enrolhere.com.au</a>
+    </div>
   </footer>
+
 </body>
 </html>
