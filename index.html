@@ -27,6 +27,7 @@
       --border:     #e0e0e0;
       --accent:     #2A50ED;
       --accent-dk:  #1a3bbf;
+      --glow:       rgba(42, 80, 237, 0.12);
 
       --font-display: 'Lora', Georgia, serif;
       --font-body:    'DM Sans', Helvetica, sans-serif;
@@ -48,99 +49,79 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+
+
     }
 
-    /* ─── MAIN ─── */
-    main {
+    /* ─── CARD ─── */
+    .card {
       width: 100%;
-      max-width: 680px;
-      padding: clamp(48px, 9vw, 100px) clamp(20px, 5vw, 48px) clamp(32px, 5vw, 60px);
+      max-width: 600px;
+      margin: clamp(32px, 6vw, 60px) clamp(16px, 5vw, 32px);
+      padding: clamp(40px, 7vw, 72px) clamp(24px, 6vw, 64px);
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex: 1;
+      text-align: center;
+
+      /* light stroke / glow card */
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid rgba(42, 80, 237, 0.15);
+      box-shadow:
+        0 0 0 4px rgba(42, 80, 237, 0.04),
+        0 8px 40px rgba(42, 80, 237, 0.08),
+        0 2px 8px rgba(0,0,0,0.04);
     }
 
     /* ─── LOGO ─── */
     .logo-wrap {
-      margin-bottom: clamp(20px, 4vw, 36px);
+      margin-bottom: clamp(28px, 5vw, 44px);
       opacity: 0;
       transform: translateY(-12px);
       animation: fadeUp 0.6s ease forwards 0.1s;
     }
 
     .logo-wrap svg {
-      width: clamp(160px, 42vw, 250px);
+      width: clamp(160px, 42vw, 240px);
       height: auto;
       display: block;
     }
 
-    /* ─── COMPANY META ─── */
-    .company-details {
-      font-size: clamp(14px, 2vw, 16px);
-      color: var(--muted);
-      text-align: center;
-      line-height: 1.9;
-      margin-bottom: clamp(28px, 5vw, 44px);
-      opacity: 0;
-      animation: fadeIn 0.6s ease forwards 0.3s;
-    }
-
-    .company-details strong {
-      display: block;
-      font-size: clamp(15px, 2.2vw, 17px);
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .company-details a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .company-details a:hover,
-    .company-details a:focus {
-      color: var(--accent-dk);
-      text-decoration: underline;
-      outline: none;
-    }
-
     /* ─── DIVIDER ─── */
     .rule {
-      width: clamp(40px, 8vw, 60px);
+      width: clamp(40px, 8vw, 56px);
       height: 2px;
-      background: var(--border);
-      margin-bottom: clamp(24px, 4vw, 40px);
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin-bottom: clamp(24px, 4vw, 36px);
       opacity: 0;
-      animation: fadeIn 0.5s ease forwards 0.45s;
+      animation: fadeIn 0.5s ease forwards 0.35s;
     }
 
     /* ─── HEADING ─── */
     h1 {
       font-family: var(--font-display);
-      font-size: clamp(34px, 7.5vw, 64px);
+      font-size: clamp(32px, 7vw, 58px);
       font-weight: 400;
       line-height: 1.15;
       color: var(--text);
-      text-align: center;
-      margin-bottom: clamp(16px, 3vw, 28px);
+      margin-bottom: clamp(14px, 3vw, 24px);
       opacity: 0;
-      animation: fadeUp 0.65s ease forwards 0.5s;
+      animation: fadeUp 0.65s ease forwards 0.4s;
     }
 
     /* ─── BODY COPY ─── */
     .body-copy {
       font-size: clamp(14px, 2.2vw, 16px);
       color: var(--muted);
-      text-align: center;
-      max-width: 480px;
+      max-width: 420px;
       margin-bottom: 10px;
       opacity: 0;
-      animation: fadeUp 0.65s ease forwards 0.65s;
+      animation: fadeUp 0.65s ease forwards 0.55s;
     }
 
     .body-copy a {
@@ -156,67 +137,34 @@
     }
 
     .sign-off {
-      font-size: clamp(14px, 2vw, 15px);
+      font-size: clamp(13px, 2vw, 15px);
       color: var(--light);
-      text-align: center;
       margin-top: 12px;
       opacity: 0;
-      animation: fadeIn 0.6s ease forwards 0.8s;
+      animation: fadeIn 0.6s ease forwards 0.7s;
     }
 
-    /* ─── CTA BUTTON ─── */
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: clamp(28px, 5vw, 44px);
-      padding: clamp(12px, 2.2vw, 14px) clamp(24px, 5vw, 36px);
-      background: var(--accent);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: clamp(13px, 2vw, 15px);
-      font-weight: 500;
-      text-decoration: none;
-      border-radius: 6px;
-      letter-spacing: 0.03em;
-      transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease;
-      box-shadow: 0 2px 12px rgba(42,80,237,0.18);
-      opacity: 0;
-      animation: fadeUp 0.65s ease forwards 0.85s;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-    }
 
-    .cta:hover,
-    .cta:focus-visible {
-      background: var(--accent-dk);
-      box-shadow: 0 4px 20px rgba(42,80,237,0.28);
-      transform: translateY(-2px);
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-    }
-
-    .cta:active {
-      transform: translateY(0);
-    }
 
     /* ─── FOOTER ─── */
     footer {
       width: 100%;
-      max-width: 680px;
-      padding: clamp(24px, 4vw, 36px) clamp(20px, 5vw, 48px);
-      border-top: 1px solid var(--border);
-      margin-top: auto;
+      max-width: 600px;
+      padding: 0 clamp(16px, 5vw, 32px) clamp(28px, 5vw, 44px);
       opacity: 0;
-      animation: fadeIn 0.7s ease forwards 1s;
+      animation: fadeIn 0.7s ease forwards 0.95s;
     }
 
     .footer-notice {
-      font-size: clamp(12px, 1.8vw, 13px);
-      color: var(--muted);
+      font-size: clamp(11px, 1.7vw, 12.5px);
+      color: var(--light);
       line-height: 1.8;
       text-align: center;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      padding: clamp(16px, 3vw, 22px) clamp(16px, 4vw, 28px);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fafafa;
     }
 
     .footer-notice a {
@@ -234,8 +182,8 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 4px 16px;
-      font-size: clamp(11px, 1.6vw, 12px);
+      gap: 4px 14px;
+      font-size: clamp(11px, 1.5vw, 12px);
       color: var(--light);
       text-align: center;
     }
@@ -250,7 +198,7 @@
       color: var(--accent);
     }
 
-    .sep { opacity: 0.4; }
+    .sep { opacity: 0.35; }
 
     /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
@@ -268,8 +216,7 @@
         animation-delay: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
-      .logo-wrap, .company-details, .rule, h1,
-      .body-copy, .sign-off, .cta, footer {
+      .logo-wrap, .rule, h1, .body-copy, .sign-off, .cta, footer {
         opacity: 1 !important;
         transform: none !important;
       }
@@ -278,16 +225,15 @@
     /* ─── PRINT ─── */
     @media print {
       body { background: #fff; }
+      .card { box-shadow: none; border: 1px solid #ccc; }
       .cta { display: none; }
-      footer { border-top: 1px solid #ccc; }
     }
   </style>
 </head>
 <body>
 
-  <main role="main">
+  <main role="main" class="card">
 
-    <!-- Inline SVG logo — no external file dependency -->
     <div class="logo-wrap">
       <svg width="250" height="95" viewBox="0 0 250 95" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Enrolhere P/L logo">
         <rect width="250" height="95" fill="white"/>
@@ -298,12 +244,6 @@
         <circle cx="62" cy="47" r="15.5" stroke="white" stroke-width="3"/>
         <circle cx="62" cy="47" r="13.5" fill="white" stroke="#2A50ED" stroke-width="3"/>
       </svg>
-    </div>
-
-    <div class="company-details">
-      <strong>Enrolhere P/L</strong>
-      <a href="tel:0481865748">0481 865 748</a><br>
-      <a href="mailto:support@enrolhere.com.au">support@enrolhere.com.au</a>
     </div>
 
     <div class="rule" aria-hidden="true"></div>
@@ -318,13 +258,7 @@
 
     <p class="sign-off">&mdash; The Team</p>
 
-    <a href="mailto:support@enrolhere.com.au" class="cta" aria-label="Send us an email">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="2" y="4" width="20" height="16" rx="2"/>
-        <path d="M2 7l10 7 10-7"/>
-      </svg>
-      Get in Touch
-    </a>
+
 
   </main>
 
